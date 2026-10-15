@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Filament\Resources\SchoolDocuments\Pages;
+
+use App\Filament\Resources\SchoolDocuments\SchoolDocumentResource;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\RestoreAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditSchoolDocument extends EditRecord
+{
+    protected static string $resource = SchoolDocumentResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            DeleteAction::make(),
+            ForceDeleteAction::make(),
+            RestoreAction::make(),
+        ];
+    }
+}
