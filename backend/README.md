@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Hande High production notes
+
+The Filament admin panel is available at `/admin`. Administrators can change their name, email, and password from the profile menu. Password changes require the current password.
+
+The login page's password-recovery link sends a reset email. Configure Laravel Cloud's **Production** mail environment with a working mail provider (`MAIL_MAILER`, provider credentials, and a verified `MAIL_FROM_ADDRESS`) before relying on recovery emails. The `log` mailer does not deliver email to an inbox. Keep mail credentials in Laravel Cloud environment variables, not in source control.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

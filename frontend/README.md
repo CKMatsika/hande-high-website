@@ -1,5 +1,11 @@
 # React + TypeScript + Vite
 
+## Hande High SEO
+
+The production site has page titles and metadata, canonical URLs, structured data, `robots.txt`, and a sitemap. The production build runs `npm run seo` before building to regenerate `public/sitemap.xml` and `public/robots.txt`; set `VITE_SITE_URL` and `VITE_API_URL` in Vercel's build environment so sitemap URLs and published news are generated from production settings.
+
+To request discovery, verify `www.handehigh.co.zw` in Google Search Console and submit `https://www.handehigh.co.zw/sitemap.xml`. This helps Google find the pages but cannot guarantee or immediately cause indexing or search rankings.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

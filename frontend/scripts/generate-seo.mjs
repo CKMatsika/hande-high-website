@@ -39,7 +39,6 @@ const staticRoutes = [
   '/gallery',
   '/downloads',
   '/contact',
-  '/portal',
   '/privacy',
   '/terms',
 ]
@@ -61,7 +60,6 @@ async function fetchJson(url, timeout = 1500) {
 async function generate() {
   const SITE_URL = envUrl()
   const api = process.env.VITE_API_URL || 'http://localhost:8000/api'
-  const now = new Date().toISOString()
   const urls = [...staticRoutes]
 
   try {
@@ -77,7 +75,7 @@ async function generate() {
 
   const entries = urls.map((p) => {
     const priority = p === '/' ? '1.0' : '0.8'
-    return `  <url>\n    <loc>${SITE_URL}${p}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`
+    return `  <url>\n    <loc>${SITE_URL}${p}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`
   })
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`

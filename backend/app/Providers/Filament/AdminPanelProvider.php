@@ -28,6 +28,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->passwordReset()
+            ->profile()
             ->brandName('Hande High School — CMS')
             ->brandLogo('/logo.png')
             ->colors([

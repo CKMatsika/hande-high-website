@@ -20,9 +20,19 @@ class AdminPanelTest extends TestCase
         $this->get('/admin')->assertRedirect('/admin/login');
     }
 
+    public function test_guests_can_open_the_password_reset_request_page(): void
+    {
+        $this->get('/admin/password-reset/request')->assertOk();
+    }
+
     public function test_admin_can_view_the_dashboard(): void
     {
         $this->actingAs($this->admin())->get('/admin')->assertOk();
+    }
+
+    public function test_admin_can_open_the_profile_page(): void
+    {
+        $this->actingAs($this->admin())->get('/admin/profile')->assertOk();
     }
 
     public function test_admin_can_view_every_resource_index(): void
