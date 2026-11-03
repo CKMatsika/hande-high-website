@@ -27,7 +27,7 @@ const subpages = [
 
 const facts = [
   { label: 'Founded', value: school.founded },
-  { label: 'Location', value: 'Nyashanu, Buhera' },
+  { label: 'Location', value: 'Ward 10 Chief Chimombe, Buhera' },
   { label: 'Motto', value: school.motto },
 ]
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Us"
-        title="A school community rooted in Nyashanu"
+        title="A school community rooted in Chief Chimombe, Buhera"
         lead={`${school.name} is a school in ${school.location}, dedicated to academic rigour, character and opportunity for every learner.`}
         image="/img/photos/landscape-04.jpg"
       />
