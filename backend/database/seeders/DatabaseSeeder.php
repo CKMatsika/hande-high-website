@@ -42,6 +42,8 @@ class DatabaseSeeder extends Seeder
             ['key' => 'video_url', 'value' => '', 'group' => 'homepage'],
             ['key' => 'video_heading', 'value' => '', 'group' => 'homepage'],
             ['key' => 'video_intro', 'value' => '', 'group' => 'homepage'],
+            ['key' => 'brand_primary_color', 'value' => '#1e3a5f', 'group' => 'appearance'],
+            ['key' => 'brand_accent_color', 'value' => '#eabf4a', 'group' => 'appearance'],
         ];
 
         foreach ($settings as $setting) {

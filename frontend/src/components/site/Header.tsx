@@ -7,8 +7,10 @@ import { Logo } from './Logo'
 import { primaryNav } from '@/content/navigation'
 import { school } from '@/content/school'
 import { useScrolled } from '@/lib/useScrolled'
+import { useCurrentSettings } from '@/lib/siteSettingsContext'
 
 export function Header() {
+  const settings = useCurrentSettings()
   const scrolled = useScrolled(8)
   const [openItem, setOpenItem] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -120,7 +122,7 @@ export function Header() {
               )
             })}
             <ButtonLink
-              href={school.portals.parents}
+              href={settings.links?.portal_url || school.portals.parents}
               external
               variant="accent"
               size="sm"
@@ -203,7 +205,7 @@ export function Header() {
               })}
             </nav>
             <ButtonLink
-              href={school.portals.parents}
+              href={settings.links?.portal_url || school.portals.parents}
               external
               variant="accent"
               className="mt-6 w-full"

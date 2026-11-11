@@ -24,6 +24,7 @@ export interface ApiEvent {
   time: string | null
   location: string | null
   description: string | null
+  image: string | null
   is_upcoming: boolean
 }
 
@@ -54,6 +55,32 @@ export interface ApiLeader {
 
 export type ApiSettings = Record<string, Record<string, string>>
 
+export interface ApiSitePageSection {
+  admin_label?: string
+  layout: 'text' | 'image-left' | 'image-right' | 'image' | 'video' | 'callout'
+  heading?: string | null
+  body?: string | null
+  image?: string | null
+  video_url?: string | null
+  button_label?: string | null
+  button_url?: string | null
+  background_color?: string | null
+  text_color?: string | null
+}
+
+export interface ApiSitePage {
+  slug: string
+  name: string
+  meta_title: string | null
+  meta_description: string | null
+  hero_eyebrow: string | null
+  hero_title: string | null
+  hero_lead: string | null
+  hero_image: string | null
+  sections: ApiSitePageSection[]
+  use_custom_layout: boolean
+}
+
 interface ResourceResponse<T> {
   data: T
 }
@@ -82,6 +109,8 @@ export const api = {
     get<ResourceResponse<ApiLeader[]>>('/leadership', signal).then((r) => r.data),
   settings: (signal?: AbortSignal) =>
     get<{ data: ApiSettings }>('/settings', signal).then((r) => r.data),
+  sitePage: (slug: string, signal?: AbortSignal) =>
+    get<ResourceResponse<ApiSitePage>>(`/pages/${encodeURIComponent(slug)}`, signal).then((r) => r.data),
 }
 
 export interface EnquiryPayload {

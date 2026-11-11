@@ -4,8 +4,12 @@ import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { Container } from '@/design-system/components/Container'
 import { school } from '@/content/school'
 import { featuredSchoolPhotos } from '@/content/photos'
+import { useCurrentSitePage } from '@/lib/sitePageContext'
+import { useCurrentSettings } from '@/lib/siteSettingsContext'
 
 export function Hero() {
+  const page = useCurrentSitePage()
+  const settings = useCurrentSettings()
   const reduce = useReducedMotion()
   const fade = (delay: number) =>
     reduce
@@ -24,23 +28,22 @@ export function Hero() {
             {...fade(0)}
             className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-400"
           >
-            {school.location}
+            {page?.hero_eyebrow || settings.general?.location || school.location}
           </motion.p>
           <motion.h1
             {...fade(0.1)}
             className="mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.05] text-white md:text-7xl"
           >
-            {school.name}
+            {page?.hero_title || settings.general?.school_name || school.name}
           </motion.h1>
           <motion.p
             {...fade(0.2)}
             className="mt-4 font-display text-xl italic text-brand-200 md:text-2xl"
           >
-            {school.motto}
+            {settings.general?.motto || school.motto}
           </motion.p>
           <motion.p {...fade(0.3)} className="mt-8 max-w-xl text-lg leading-relaxed text-brand-100">
-            A community of learning, character and opportunity — where every learner is known,
-            challenged and prepared for the world ahead.
+            {page?.hero_lead || 'A community of learning, character and opportunity — where every learner is known, challenged and prepared for the world ahead.'}
           </motion.p>
           <motion.div {...fade(0.4)} className="mt-10 flex flex-wrap gap-4">
             <ButtonLink to="/about" variant="accent" size="lg">
@@ -53,7 +56,7 @@ export function Hero() {
         </div>
         <figure className="order-first flex aspect-[4/3] items-center justify-center overflow-hidden bg-brand-950 lg:order-last">
           <img
-            src={featuredSchoolPhotos.hero}
+            src={page?.hero_image || featuredSchoolPhotos.hero}
             alt="Hande High School bus on the school grounds"
             className="h-full w-full object-contain"
             fetchPriority="high"

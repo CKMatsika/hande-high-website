@@ -1,7 +1,7 @@
 import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { VideoEmbed } from '@/design-system/components/VideoEmbed'
-import { useSettings } from '@/lib/useContent'
+import { useCurrentSettings } from '@/lib/siteSettingsContext'
 
 /**
  * Optional homepage video. Appears only when a URL is set in the CMS under
@@ -9,7 +9,7 @@ import { useSettings } from '@/lib/useContent'
  * direct video file URL.
  */
 export function VideoSection() {
-  const settings = useSettings()
+  const settings = useCurrentSettings()
   const url = settings.homepage?.video_url?.trim()
   if (!url) return null
 

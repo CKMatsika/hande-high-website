@@ -6,6 +6,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -35,6 +36,12 @@ class SchoolEventForm
                                 'bold', 'italic', 'underline', 'strike',
                                 'bulletList', 'orderedList', 'link',
                             ]),
+                        FileUpload::make('image_path')
+                            ->label('Event image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('events')
+                            ->imageEditor(),
                         Toggle::make('is_published')
                             ->required()
                             ->default(true),

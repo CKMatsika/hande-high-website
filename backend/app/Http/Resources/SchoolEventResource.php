@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class SchoolEventResource extends JsonResource
 {
+    use ResolvesMediaUrl;
+
     public function toArray(Request $request): array
     {
         return [
@@ -18,6 +20,7 @@ class SchoolEventResource extends JsonResource
             'time' => $this->starts_at?->format('H:i'),
             'location' => $this->location,
             'description' => $this->description,
+            'image' => $this->mediaUrl($this->image_path),
             'is_upcoming' => $this->starts_at?->isFuture() ?? false,
         ];
     }

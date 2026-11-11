@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\LeadershipController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\SettingController;
+use App\Http\Controllers\Api\SitePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/settings', [SettingController::class, 'index'])->name('api.settings.index');
+Route::get('/pages/{slug}', [SitePageController::class, 'show'])->name('api.pages.show');
 
 Route::get('/news', [NewsController::class, 'index'])->name('api.news.index');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('api.news.show');

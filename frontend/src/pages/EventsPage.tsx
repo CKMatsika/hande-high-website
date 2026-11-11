@@ -58,6 +58,7 @@ export default function EventsPage() {
                         {formatDate(event.date)}
                       </time>
                       <div className="border-l-2 border-accent-500 pl-5">
+                        {event.image && <img src={event.image} alt={event.title} loading="lazy" className="mb-4 max-h-72 w-full object-contain" />}
                         <h3 className="font-display text-xl text-brand-900">{event.title}</h3>
                         <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-brand-500">
                           <MapPin aria-hidden="true" className="h-3.5 w-3.5" />

@@ -1,5 +1,6 @@
 import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
+import { useCurrentSitePage } from '@/lib/sitePageContext'
 
 interface PageHeroProps {
   title: string
@@ -11,6 +12,11 @@ interface PageHeroProps {
 const defaultImage = '/img/photos/campus-classroom-walkway.jpg'
 
 export function PageHero({ title, eyebrow, lead, image = defaultImage }: PageHeroProps) {
+  const page = useCurrentSitePage()
+  title = page?.hero_title || title
+  eyebrow = page?.hero_eyebrow || eyebrow
+  lead = page?.hero_lead || lead
+  image = page?.hero_image || image
   return (
     <section className="bg-brand-950" aria-label={title}>
       <Container className="grid gap-8 py-10 md:grid-cols-2 md:items-center md:gap-12 md:py-12 lg:gap-16">

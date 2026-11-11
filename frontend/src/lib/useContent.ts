@@ -66,6 +66,7 @@ function mapEvent(event: ApiEvent): SchoolEvent {
     date: event.date ?? '',
     location: event.location ?? '',
     description: event.description ?? '',
+    image: event.image,
   }
 }
 

@@ -32,6 +32,7 @@ class SchoolSettingsTable
                         'contact' => 'Contact',
                         'links' => 'Links',
                         'homepage' => 'Homepage',
+                        'appearance' => 'Appearance & theme',
                     ]),
             ])
             ->recordActions([

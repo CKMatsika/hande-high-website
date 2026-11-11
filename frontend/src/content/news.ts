@@ -13,6 +13,7 @@ export interface SchoolEvent {
   date: string
   location: string
   description: string
+  image?: string | null
 }
 
 // TODO: CONFIRM — replace with real school news and events before launch

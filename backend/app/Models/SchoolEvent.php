@@ -18,6 +18,7 @@ class SchoolEvent extends Model
         'ends_at',
         'location',
         'description',
+        'image_path',
         'is_published',
     ];
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 import { primaryNav } from '@/content/navigation'
 import { school } from '@/content/school'
+import { useCurrentSettings } from '@/lib/siteSettingsContext'
 
 const socialInitials: Record<string, string> = {
   Facebook: 'f',
@@ -12,6 +13,13 @@ const socialInitials: Record<string, string> = {
 }
 
 export function Footer() {
+  const settings = useCurrentSettings()
+  const name = settings.general?.school_name || school.name
+  const motto = settings.general?.motto || school.motto
+  const address = settings.contact?.physical_address || school.contact.address
+  const postal = settings.contact?.postal_address || school.contact.postal
+  const phone = settings.contact?.phone || school.contact.phone
+  const email = settings.contact?.email || school.contact.email
   const year = new Date().getFullYear()
   return (
     <footer className="bg-brand-950 text-brand-200">
@@ -20,7 +28,7 @@ export function Footer() {
           <span className="inline-block rounded bg-white p-2">
             <Logo />
           </span>
-          <p className="mt-4 text-sm leading-relaxed italic">{school.motto}</p>
+          <p className="mt-4 text-sm leading-relaxed italic">{motto}</p>
           <div className="mt-6 flex gap-3">
             {school.social.map(({ label, href }) => (
               <a
@@ -51,16 +59,16 @@ export function Footer() {
         <div>
           <h2 className="font-display text-lg text-white">Contact</h2>
           <address className="mt-4 space-y-2 text-sm not-italic">
-            <p>{school.contact.address}</p>
-            <p>Postal: {school.contact.postal}</p>
+            <p>{address}</p>
+            <p>Postal: {postal}</p>
             <p>
-              <a href={`tel:${school.contact.phone}`} className="hover:text-accent-400">
-                {school.contact.phone}
+              <a href={`tel:${phone}`} className="hover:text-accent-400">
+                {phone}
               </a>
             </p>
             <p>
-              <a href={`mailto:${school.contact.email}`} className="hover:text-accent-400">
-                {school.contact.email}
+              <a href={`mailto:${email}`} className="hover:text-accent-400">
+                {email}
               </a>
             </p>
           </address>
@@ -96,7 +104,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-3 py-5 text-xs md:flex-row">
           <p>
-            © {year} {school.name}. All rights reserved.
+            © {year} {name}. All rights reserved.
           </p>
           <p className="flex gap-4">
             <Link to="/privacy" className="hover:text-accent-400">

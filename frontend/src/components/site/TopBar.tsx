@@ -4,25 +4,29 @@ import { Container } from '@/design-system/components/Container'
 import { quickLinks } from '@/content/navigation'
 import { school } from '@/content/school'
 import { adminUrl } from '@/lib/api'
+import { useCurrentSettings } from '@/lib/siteSettingsContext'
 
 export function TopBar() {
+  const settings = useCurrentSettings()
+  const email = settings.contact?.email || school.contact.email
+  const phone = settings.contact?.phone || school.contact.phone
   return (
     <div className="bg-brand-950 text-brand-100">
       <Container className="flex flex-wrap items-center justify-between gap-2 py-2 text-xs">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
           <a
-            href={`mailto:${school.contact.email}`}
+            href={`mailto:${email}`}
             className="inline-flex items-center gap-1.5 hover:text-accent-400"
           >
             <Mail aria-hidden="true" className="h-3.5 w-3.5" />
-            {school.contact.email}
+            {email}
           </a>
           <a
-            href={`tel:${school.contact.phone}`}
+            href={`tel:${phone}`}
             className="inline-flex items-center gap-1.5 hover:text-accent-400"
           >
             <Phone aria-hidden="true" className="h-3.5 w-3.5" />
-            {school.contact.phone}
+            {phone}
           </a>
         </div>
         <nav aria-label="Quick links" className="flex items-center gap-4">
