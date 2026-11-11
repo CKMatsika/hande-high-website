@@ -13,6 +13,14 @@ The Filament admin panel is available at `/admin`. Administrators can change the
 
 The login page's password-recovery link sends a reset email. Configure Laravel Cloud's **Production** mail environment with a working mail provider (`MAIL_MAILER`, provider credentials, and a verified `MAIL_FROM_ADDRESS`) before relying on recovery emails. The `log` mailer does not deliver email to an inbox. Keep mail credentials in Laravel Cloud environment variables, not in source control.
 
+### 2027 admissions ERP integration
+
+The public application form posts to this Laravel API. The backend forwards validated multipart form data and documents to the Hande High ERP endpoint configured as `HANDE_ERP_ADMISSIONS_URL` (defaults to the production admissions endpoint). It requires `HANDE_ERP_ADMISSIONS_TOKEN`; configure that variable as a **private Laravel Cloud Production environment secret** after the school has created an integration account with the restricted `admissions-integration` role and issued a token with the `admissions:submit` ability through its approved credential process. Do not place a real token in `.env.example`, source control, browser configuration, or logs. Redeploy/reload configuration after setting the secret.
+
+Each browser application attempt uses one UUID idempotency key and retains it for retries while the form remains open. The proxy forwards it as `idempotency_key`. ERP success is reported only for HTTP 201; the proxy does not create students, enrolments, invoices, or payments. A missing secret returns HTTP 503 without forwarding applicant data.
+
+Uploaded documents are limited to PDF, DOC, DOCX, JPG/JPEG, or PNG and 10 MB per file. The web server/PHP upload limits must allow at least six files and a combined request size above 60 MB (for example `upload_max_filesize=10M`, `post_max_size=65M`, and `max_file_uploads>=6`) so all supported optional uploads can reach Laravel validation.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

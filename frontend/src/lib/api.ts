@@ -143,6 +143,102 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<EnquiryRes
   }
 }
 
+export interface AdmissionApplicationPayload {
+  idempotency_key: string
+  entry_form: 'Form 1' | 'Form 5'
+  student_first_name: string
+  student_other_names: string
+  student_last_name: string
+  student_date_of_birth: string
+  student_gender: 'male' | 'female' | 'other'
+  previous_school: string
+  subject_combination: string
+  residency: 'day' | 'boarding'
+  guardian_first_name: string
+  guardian_last_name: string
+  guardian_relationship: string
+  guardian_phone: string
+  guardian_email: string
+  guardian_alternate_phone: string
+  guardian_address: string
+  birth_certificate_number: string
+  documents: {
+    birth_certificate: File
+    previous_school_report: File
+    guardian_id?: File
+    transfer_letter?: File
+    passport_photo?: File
+    other?: File
+  }
+}
+
+export interface AdmissionApplicationResult {
+  ok: boolean
+  message: string
+  applicationNumber?: string
+  errors?: Record<string, string[]>
+}
+
+export async function submitAdmissionApplication(
+  payload: AdmissionApplicationPayload,
+): Promise<AdmissionApplicationResult> {
+  const body = new FormData()
+  const { documents, ...fields } = payload
+  Object.entries(fields).forEach(([key, value]) => body.append(key, value))
+  Object.entries(documents).forEach(([key, file]) => {
+    if (file) body.append(`documents[${key}]`, file)
+  })
+
+  try {
+    const res = await fetch(`${API_URL}/admissions/applications`, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body,
+    })
+    const json = (await res.json().catch(() => ({}))) as {
+      message?: string
+      application_number?: string
+      errors?: Record<string, string[]>
+    }
+
+    if (res.status === 201) {
+      return {
+        ok: true,
+        message: json.message ?? 'Your application has been submitted for review.',
+        applicationNumber: json.application_number,
+      }
+    }
+    if (res.status === 422) {
+      return {
+        ok: false,
+        message: json.message ?? 'Please check the application details and uploaded files.',
+        errors: json.errors,
+      }
+    }
+    if (res.status === 401 || res.status === 403) {
+      return {
+        ok: false,
+        message: json.message ?? 'The admissions service could not authorize this submission. Please contact the school.',
+      }
+    }
+    if (res.status === 429) {
+      return {
+        ok: false,
+        message: json.message ?? 'Too many applications are being submitted. Please wait a moment and retry.',
+      }
+    }
+    return {
+      ok: false,
+      message: json.message ?? 'The admissions service is temporarily unavailable. Your application was not confirmed; please retry shortly using this same form.',
+    }
+  } catch {
+    return {
+      ok: false,
+      message: 'We could not reach the admissions service. Your application was not confirmed; please retry shortly using this same form.',
+    }
+  }
+}
+
 // Exposed for tests and diagnostics
 export const apiBaseUrl = API_URL
 export const adminUrl = ADMIN_URL

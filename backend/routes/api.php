@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\EnquiryController;
+use App\Http\Controllers\Api\AdmissionsApplicationController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\LeadershipController;
@@ -32,3 +33,7 @@ Route::get('/leadership', [LeadershipController::class, 'index'])->name('api.lea
 Route::post('/enquiries', [EnquiryController::class, 'store'])
     ->middleware('throttle:enquiries')
     ->name('api.enquiries.store');
+
+Route::post('/admissions/applications', [AdmissionsApplicationController::class, 'store'])
+    ->middleware('throttle:enquiries')
+    ->name('api.admissions.applications.store');

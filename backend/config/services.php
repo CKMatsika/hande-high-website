@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'hande_erp' => [
+        'admissions_url' => env('HANDE_ERP_ADMISSIONS_URL', 'https://handehigh-production-mbxi6c.laravel.cloud/api/v1/admissions/applications'),
+        'admissions_token' => env('HANDE_ERP_ADMISSIONS_TOKEN'),
+    ],
+
 ];
