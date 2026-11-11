@@ -26,7 +26,7 @@ const milestones = [
 export default function HistoryPage() {
   usePageMeta({
     title: `History — ${school.name}`,
-    description: `The history of ${school.name}, Nyashanu, Buhera.`,
+    description: `The history of ${school.name}, Ward 10, Chief Chimombe, Buhera.`,
   })
 
   return (

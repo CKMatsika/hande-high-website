@@ -13,7 +13,7 @@ export default function GalleryPage() {
 
   usePageMeta({
     title: `Gallery — ${school.name}`,
-    description: `Photographs of ${school.name}, Nyashanu, Buhera.`,
+    description: `Photographs of ${school.name}, Ward 10, Chief Chimombe, Buhera.`,
   })
 
   const close = useCallback(() => setIndex(null), [])

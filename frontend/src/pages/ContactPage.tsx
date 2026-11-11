@@ -25,7 +25,7 @@ export default function ContactPage() {
 
   usePageMeta({
     title: `Contact Us — ${school.name}`,
-    description: `Contact ${school.name}, Nyashanu, Buhera, Manicaland Province.`,
+    description: `Contact ${school.name}, Ward 10, Chief Chimombe, Buhera, Manicaland Province.`,
   })
 
   const set = (key: keyof FormState) => (
@@ -114,7 +114,7 @@ export default function ContactPage() {
             <div className="mt-10 bg-brand-50 p-6">
               <h3 className="font-display text-lg text-brand-900">Finding us</h3>
               <p className="mt-2 text-sm leading-relaxed text-brand-600">
-                [DIRECTIONS AND A MAP — TO BE CONFIRMED. Nyashanu, Buhera, Manicaland Province.]
+                [DIRECTIONS AND A MAP — TO BE CONFIRMED. Ward 10, Chief Chimombe, Buhera, Manicaland Province.]
               </p>
             </div>
           </div>

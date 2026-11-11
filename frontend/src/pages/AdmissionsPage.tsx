@@ -22,7 +22,7 @@ const requirements = [
 export default function AdmissionsPage() {
   usePageMeta({
     title: `Admissions — ${school.name}`,
-    description: `How to apply to ${school.name}, Nyashanu, Buhera.`,
+    description: `How to apply to ${school.name}, Ward 10, Chief Chimombe, Buhera.`,
   })
 
   return (

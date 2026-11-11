@@ -7,12 +7,12 @@
 export const school = {
   name: 'Hande High School',
   shortName: 'Hande High',
-  location: 'Nyashanu, Buhera, Manicaland Province, Zimbabwe',
+  location: 'Ward 10, Chief Chimombe, Buhera, Manicaland Province, Zimbabwe',
   motto: 'Strive to Achieve',
   founded: '[YEAR — TO BE CONFIRMED]',
   // TODO: CONFIRM contact details
   contact: {
-    address: 'Nyashanu, Buhera, Zimbabwe',
+    address: 'Ward 10, Chief Chimombe, Buhera, Zimbabwe',
     postal: 'P Bag 1014, Dorowa, Zimbabwe',
     phone: '+263 774 862 592',
     email: 'info@handehigh.co.zw',

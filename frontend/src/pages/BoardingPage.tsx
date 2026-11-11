@@ -18,7 +18,7 @@ const day = [
 export default function BoardingPage() {
   usePageMeta({
     title: `Boarding Life — ${school.name}`,
-    description: `Boarding life at ${school.name}, Nyashanu, Buhera.`,
+    description: `Boarding life at ${school.name}, Ward 10, Chief Chimombe, Buhera.`,
   })
 
   return (

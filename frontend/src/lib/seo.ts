@@ -78,7 +78,7 @@ export function organizationSchema() {
     telephone: school.contact.phone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Nyashanu, Buhera',
+      addressLocality: 'Ward 10, Chief Chimombe, Buhera',
       addressRegion: 'Manicaland Province',
       addressCountry: 'Zimbabwe',
       streetAddress: school.contact.address,

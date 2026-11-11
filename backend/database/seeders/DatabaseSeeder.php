@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         $settings = [
             ['key' => 'school_name', 'value' => 'Hande High School', 'group' => 'general'],
             ['key' => 'motto', 'value' => 'Strive to Achieve', 'group' => 'general'],
-            ['key' => 'location', 'value' => 'Nyashanu, Buhera, Manicaland Province, Zimbabwe', 'group' => 'general'],
-            ['key' => 'physical_address', 'value' => 'Nyashanu, Buhera, Zimbabwe', 'group' => 'contact'],
+            ['key' => 'location', 'value' => 'Ward 10, Chief Chimombe, Buhera, Manicaland Province, Zimbabwe', 'group' => 'general'],
+            ['key' => 'physical_address', 'value' => 'Ward 10, Chief Chimombe, Buhera, Zimbabwe', 'group' => 'contact'],
             ['key' => 'postal_address', 'value' => 'P Bag 1014, Dorowa, Zimbabwe', 'group' => 'contact'],
             ['key' => 'phone', 'value' => '+263 774 862 592', 'group' => 'contact'],
             ['key' => 'email', 'value' => 'info@handehigh.co.zw', 'group' => 'contact'],
