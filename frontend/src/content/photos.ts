@@ -5,21 +5,18 @@ export interface SchoolPhoto {
 }
 
 export const schoolPhotos: SchoolPhoto[] = [
-  { src: '/img/photos/school-bus-arrival.jpg', alt: 'Hande High School bus parked on campus', album: 'Transport' },
   { src: '/img/photos/campus-classroom-walkway.jpg', alt: 'Walkway between Hande High School classroom blocks', album: 'Campus' },
   { src: '/img/photos/campus-classroom-courtyard.jpg', alt: 'Classroom blocks and gardens at Hande High School', album: 'Campus' },
   { src: '/img/photos/campus-shade-tree.jpg', alt: 'Shaded courtyard and classroom block on campus', album: 'Campus' },
   { src: '/img/photos/campus-classroom-garden.jpg', alt: 'Classroom block beside a landscaped campus path', album: 'Campus' },
   { src: '/img/photos/campus-classroom-garden-wide.jpg', alt: 'Wide view of the classroom garden and campus path', album: 'Campus' },
-  { src: '/img/photos/campus-classroom-garden-alt.jpg', alt: 'Classroom garden and walkway between school buildings', album: 'Campus' },
   { src: '/img/photos/campus-main-gate.jpg', alt: 'Main entrance gate to Hande High School', album: 'Campus' },
   { src: '/img/photos/campus-gate-path.jpg', alt: 'Path leading through the school grounds', album: 'Campus' },
   { src: '/img/photos/campus-garden-path.jpg', alt: 'Garden path beside a Hande High School classroom block', album: 'Campus' },
   { src: '/img/photos/campus-boundary-fence.jpg', alt: 'School grounds and boundary fence beneath campus trees', album: 'Campus' },
   { src: '/img/photos/campus-classroom-entry.jpg', alt: 'Classroom buildings around the central campus walkway', album: 'Campus' },
   { src: '/img/photos/campus-boundary-trees.jpg', alt: 'Trees and boundary fence along the school grounds', album: 'Campus' },
-  { src: '/img/photos/school-event-speaker.jpg', alt: 'A speaker addressing the school community at an event', album: 'Events' },
-  { src: '/img/photos/administration-block.jpg', alt: 'Hande High School administration block', album: 'Campus' },
+  { src: '/img/photos/school-event-speaker.jpg', alt: 'Deputy Headmaster addressing the school community', album: 'Leadership' },
   { src: '/img/photos/school-community-lunch.jpg', alt: 'Members of the school community sharing a meal at an event', album: 'Events' },
   { src: '/img/photos/students-group-blue-uniform.jpg', alt: 'Hande High School learners gathered in blue uniforms', album: 'School Life' },
   { src: '/img/photos/school-bus-students.jpg', alt: 'Learners and staff beside the Hande High School bus', album: 'Transport' },
@@ -46,7 +43,7 @@ export const schoolPhotos: SchoolPhoto[] = [
 export const featuredSchoolPhotos = {
   hero: '/img/photos/school-bus-campus.jpg',
   campus: '/img/photos/campus-classroom-walkway.jpg',
-  administration: '/img/photos/administration-block.jpg',
+  classrooms: '/img/photos/campus-classroom-entry.jpg',
   academics: '/img/photos/science-practical.jpg',
   students: '/img/photos/students-group-blue-uniform.jpg',
   sports: '/img/photos/netball-team.jpg',
@@ -56,4 +53,5 @@ export const featuredSchoolPhotos = {
   entrance: '/img/photos/campus-main-gate.jpg',
   dance: '/img/photos/cultural-dance.jpg',
   bus: '/img/photos/school-bus-front.jpg',
+  deputyHeadmaster: '/img/photos/school-event-speaker.jpg',
 } as const

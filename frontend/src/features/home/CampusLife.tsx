@@ -24,13 +24,13 @@ export function CampusLife() {
           </ButtonLink>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {gallery.map((item, i) => (
+          {gallery.map((item) => (
             <MediaFrame
               key={item.src}
               src={item.src}
               alt={item.alt}
-              aspect={i === 0 ? 'portrait' : 'square'}
-              className={`shadow-sm ${i === 0 ? 'sm:row-span-2 sm:aspect-auto sm:h-full' : ''}`}
+              aspect="photo"
+              className="shadow-sm"
             />
           ))}
         </div>

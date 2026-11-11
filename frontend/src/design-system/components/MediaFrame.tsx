@@ -33,7 +33,7 @@ export function MediaFrame({
         alt={alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
-        className={`h-full w-full object-cover ${imgClassName}`}
+        className={`h-full w-full object-contain ${imgClassName}`}
       />
       {children}
     </figure>

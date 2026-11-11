@@ -63,8 +63,8 @@ export default function AboutPage() {
             </ButtonLink>
           </div>
           <MediaFrame
-            src={featuredSchoolPhotos.administration}
-            alt="Hande High School administration block"
+            src={featuredSchoolPhotos.classrooms}
+            alt="Classroom buildings around the central Hande High School campus walkway"
             className="shadow-2xl"
           />
         </Container>

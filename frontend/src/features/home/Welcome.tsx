@@ -45,7 +45,7 @@ export function Welcome() {
         </motion.div>
         <motion.div {...whileInView} className="order-first lg:order-last">
           <MediaFrame
-            src={featuredSchoolPhotos.administration}
+            src={featuredSchoolPhotos.classrooms}
             alt="Photograph of Hande High School"
             aspect="photo"
             className="shadow-2xl"

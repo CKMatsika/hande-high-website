@@ -36,7 +36,7 @@ export default function HistoryPage() {
         eyebrow="About Us"
         title="Our History"
         lead="A story still being written — from our founding to the school of today."
-        image={featuredSchoolPhotos.administration}
+        image={featuredSchoolPhotos.classrooms}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="max-w-3xl">

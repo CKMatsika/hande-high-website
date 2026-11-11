@@ -61,7 +61,7 @@ export default function GalleryPage() {
                   <MediaFrame
                     src={photo.src}
                     alt={photo.alt}
-                    aspect="square"
+                    aspect="photo"
                     className="shadow-sm transition-shadow group-hover:shadow-lg"
                   />
                 </button>

@@ -9,7 +9,7 @@ import {
   type ApiSettings,
 } from '@/lib/api'
 import { latestNews, upcomingEvents, type NewsItem, type SchoolEvent } from '@/content/news'
-import { schoolPhotos } from '@/content/photos'
+import { featuredSchoolPhotos, schoolPhotos } from '@/content/photos'
 
 /**
  * Generic remote resource loader.
@@ -224,19 +224,31 @@ export interface LeaderItem {
 }
 
 const fallbackLeaders: LeaderItem[] = [
-  { role: 'Headmaster', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-02.jpg' },
-  { role: 'Deputy Headmaster', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-03.jpg' },
-  { role: 'Head of Academics', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-04.jpg' },
-  { role: 'Head of Boarding', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-01.jpg' },
-  { role: 'Head of Student Welfare', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-02.jpg' },
-  { role: 'School Bursar', name: '[NAME — TO BE CONFIRMED]', portrait: '/img/photos/portrait-03.jpg' },
+  { role: 'Headmaster', name: 'Mr Machakaire', portrait: '' },
+  {
+    role: 'Deputy Headmaster',
+    name: '',
+    portrait: featuredSchoolPhotos.deputyHeadmaster,
+  },
 ]
 
 function mapLeader(leader: ApiLeader): LeaderItem {
+  const role = leader.role.trim().toLowerCase()
+
   return {
-    name: leader.name,
+    name:
+      role === 'headmaster'
+        ? 'Mr Machakaire'
+        : leader.name.startsWith('[')
+          ? ''
+          : leader.name,
     role: leader.role,
-    portrait: leader.portrait ?? '/img/photos/portrait-01.jpg',
+    portrait:
+      role === 'headmaster'
+        ? ''
+        : role === 'deputy headmaster'
+          ? featuredSchoolPhotos.deputyHeadmaster
+          : leader.portrait ?? '',
     bio: leader.bio ?? undefined,
   }
 }

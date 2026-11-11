@@ -35,7 +35,7 @@ export default function PortalPage() {
         eyebrow="Portals"
         title="Portal Login"
         lead="Access the school's online systems. Accounts are issued by the school office."
-        image={featuredSchoolPhotos.administration}
+        image={featuredSchoolPhotos.classrooms}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>
