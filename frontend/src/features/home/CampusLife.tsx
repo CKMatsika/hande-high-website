@@ -2,12 +2,13 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const gallery = [
-  { src: '/img/photos/portrait-01.jpg', alt: 'Photograph of Hande High School' },
-  { src: '/img/photos/landscape-04.jpg', alt: 'Photograph of the school campus' },
-  { src: '/img/photos/landscape-05.jpg', alt: 'Photograph of school life' },
-  { src: '/img/photos/landscape-06.jpg', alt: 'Photograph of school facilities' },
+  { src: featuredSchoolPhotos.campus, alt: 'Walkway between Hande High School classroom blocks' },
+  { src: featuredSchoolPhotos.sports, alt: 'Hande High School netball team on court' },
+  { src: featuredSchoolPhotos.arts, alt: 'Hande High School choir performing at an event' },
+  { src: featuredSchoolPhotos.bus, alt: 'Front view of the Hande High School bus' },
 ]
 
 export function CampusLife() {
@@ -16,7 +17,7 @@ export function CampusLife() {
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Heading eyebrow="Campus Life" level="h2" className="max-w-xl">
-            Grounds and facilities to grow into
+            Our campus and community
           </Heading>
           <ButtonLink to="/gallery" variant="outline">
             View Full Gallery

@@ -3,6 +3,7 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 // TODO: CONFIRM — replace with the school's real milestones and dates
 const milestones = [
@@ -35,7 +36,7 @@ export default function HistoryPage() {
         eyebrow="About Us"
         title="Our History"
         lead="A story still being written — from our founding to the school of today."
-        image="/img/photos/landscape-06.jpg"
+        image={featuredSchoolPhotos.administration}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="max-w-3xl">

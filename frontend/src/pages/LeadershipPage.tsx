@@ -5,6 +5,7 @@ import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { useLeadership } from '@/lib/useContent'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 export default function LeadershipPage() {
   const { leaders } = useLeadership()
@@ -20,7 +21,7 @@ export default function LeadershipPage() {
         eyebrow="About Us"
         title="School Leadership"
         lead="The staff who lead, care for and guide our school community."
-        image="/img/photos/landscape-01.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>

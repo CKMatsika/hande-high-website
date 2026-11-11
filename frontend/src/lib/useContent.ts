@@ -9,6 +9,7 @@ import {
   type ApiSettings,
 } from '@/lib/api'
 import { latestNews, upcomingEvents, type NewsItem, type SchoolEvent } from '@/content/news'
+import { schoolPhotos } from '@/content/photos'
 
 /**
  * Generic remote resource loader.
@@ -45,7 +46,7 @@ function useApiResource<T>(load: (signal: AbortSignal) => Promise<T>, fallback: 
   return { data, loading }
 }
 
-const placeholderNewsImage = '/img/photos/landscape-02.jpg'
+const placeholderNewsImage = '/img/photos/campus-classroom-walkway.jpg'
 
 function mapNews(post: ApiNewsPost): NewsItem {
   return {
@@ -126,19 +127,6 @@ export interface GalleryItem {
   album: string
 }
 
-const fallbackGallery: GalleryItem[] = [
-  { src: '/img/photos/landscape-01.jpg', alt: 'Photograph of Hande High School', album: 'Campus' },
-  { src: '/img/photos/landscape-02.jpg', alt: 'Photograph of Hande High School', album: 'Campus' },
-  { src: '/img/photos/landscape-03.jpg', alt: 'Photograph of Hande High School', album: 'Campus' },
-  { src: '/img/photos/landscape-04.jpg', alt: 'Photograph of the school campus', album: 'Campus' },
-  { src: '/img/photos/landscape-05.jpg', alt: 'Photograph of school life', album: 'School Life' },
-  { src: '/img/photos/landscape-06.jpg', alt: 'Photograph of school facilities', album: 'Campus' },
-  { src: '/img/photos/portrait-01.jpg', alt: 'Photograph of Hande High School', album: 'School Life' },
-  { src: '/img/photos/portrait-02.jpg', alt: 'Photograph of Hande High School', album: 'School Life' },
-  { src: '/img/photos/portrait-03.jpg', alt: 'Photograph of Hande High School', album: 'School Life' },
-  { src: '/img/photos/portrait-04.jpg', alt: 'Photograph of Hande High School', album: 'School Life' },
-]
-
 function mapGallery(photo: ApiGalleryPhoto): GalleryItem {
   return {
     src: photo.image,
@@ -151,10 +139,12 @@ export function useGallery(): { photos: GalleryItem[]; loading: boolean } {
   const load = useCallback(async (signal: AbortSignal) => {
     const photos = await api.gallery(signal)
     const mapped = photos.map(mapGallery)
-    return mapped.length === 0 ? fallbackGallery : mapped
+    const bundledSources = new Set(schoolPhotos.map((photo) => photo.src))
+    const cmsOnly = mapped.filter((photo) => !bundledSources.has(photo.src))
+    return [...schoolPhotos, ...cmsOnly]
   }, [])
 
-  const { data, loading } = useApiResource(load, fallbackGallery)
+  const { data, loading } = useApiResource(load, schoolPhotos)
   return { photos: data, loading }
 }
 

@@ -4,6 +4,7 @@ import { Heading } from '@/design-system/components/Heading'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const steps = [
   { title: 'Enquire', body: 'Submit an enquiry or download the prospectus.' },
@@ -31,7 +32,7 @@ export default function AdmissionsPage() {
         eyebrow="Admissions"
         title="Joining Hande High School"
         lead="Applications for the coming academic year are open. We will guide your family through every step."
-        image="/img/photos/landscape-05.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>

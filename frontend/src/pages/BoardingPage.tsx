@@ -4,6 +4,7 @@ import { Heading } from '@/design-system/components/Heading'
 import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const day = [
   { time: '06:00', item: 'Wake-up and morning routine' },
@@ -27,7 +28,7 @@ export default function BoardingPage() {
         eyebrow="Student Life"
         title="Boarding Life"
         lead="A structured, supportive boarding environment — a second home for our learners."
-        image="/img/photos/landscape-06.jpg"
+        image={featuredSchoolPhotos.campus}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
@@ -46,8 +47,8 @@ export default function BoardingPage() {
             </p>
           </div>
           <MediaFrame
-            src="/img/photos/landscape-01.jpg"
-            alt="Boarding at Hande High School"
+            src="/img/photos/campus-classroom-courtyard.jpg"
+            alt="School buildings and landscaped grounds at Hande High School"
             className="shadow-2xl"
           />
         </Container>

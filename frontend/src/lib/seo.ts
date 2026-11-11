@@ -5,7 +5,7 @@ const rawUrl = (import.meta.env.VITE_SITE_URL as string | undefined)?.trim()
 export const SITE_URL = (rawUrl && rawUrl.length > 0 ? rawUrl : 'https://www.handehigh.co.zw').replace(/\/+$/, '')
 export const SITE_NAME = school.name
 export const DEFAULT_DESCRIPTION = `${school.name} is a secondary school in ${school.location}. ${school.motto}.`
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/img/photos/landscape-02.jpg`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/img/photos/school-bus-campus.jpg`
 export const LOGO_URL = `${SITE_URL}/img/logo.png`
 
 export function absoluteUrl(path = '/'): string {

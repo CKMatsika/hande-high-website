@@ -4,6 +4,7 @@ import { Heading } from '@/design-system/components/Heading'
 import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 export function Welcome() {
   const reduce = useReducedMotion()
@@ -44,7 +45,7 @@ export function Welcome() {
         </motion.div>
         <motion.div {...whileInView} className="order-first lg:order-last">
           <MediaFrame
-            src="/img/photos/landscape-01.jpg"
+            src={featuredSchoolPhotos.administration}
             alt="Photograph of Hande High School"
             aspect="photo"
             className="shadow-2xl"

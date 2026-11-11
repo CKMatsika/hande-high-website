@@ -3,6 +3,7 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 // TODO: CONFIRM — all statements below are placeholders for the school's official text
 const values = [
@@ -35,7 +36,7 @@ export default function VisionMissionPage() {
       <PageHero
         eyebrow="About Us"
         title="Vision, Mission & Values"
-        image="/img/photos/landscape-05.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-brand-950 py-[var(--spacing-section)] text-white">
         <Container className="grid gap-16 lg:grid-cols-2">

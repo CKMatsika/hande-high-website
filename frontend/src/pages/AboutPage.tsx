@@ -6,6 +6,7 @@ import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const subpages = [
   {
@@ -43,7 +44,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="A school community rooted in Chief Chimombe, Buhera"
         lead={`${school.name} is a school in ${school.location}, dedicated to academic rigour, character and opportunity for every learner.`}
-        image="/img/photos/landscape-04.jpg"
+        image={featuredSchoolPhotos.campus}
       />
 
       <section className="bg-white py-[var(--spacing-section)]">
@@ -62,8 +63,8 @@ export default function AboutPage() {
             </ButtonLink>
           </div>
           <MediaFrame
-            src="/img/photos/landscape-01.jpg"
-            alt="Photograph of Hande High School"
+            src={featuredSchoolPhotos.administration}
+            alt="Hande High School administration block"
             className="shadow-2xl"
           />
         </Container>

@@ -5,6 +5,7 @@ import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { useNews } from '@/lib/useContent'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {
@@ -25,7 +26,7 @@ export default function NewsPage() {
 
   return (
     <>
-      <PageHero eyebrow="News & Events" title="Latest News" image="/img/photos/landscape-05.jpg" />
+      <PageHero eyebrow="News & Events" title="Latest News" image={featuredSchoolPhotos.event} />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="space-y-14">
           {featured && (

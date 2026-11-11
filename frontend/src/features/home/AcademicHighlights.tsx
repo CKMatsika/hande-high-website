@@ -2,6 +2,7 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const highlights = [
   {
@@ -25,8 +26,8 @@ export function AcademicHighlights() {
     <section className="bg-brand-950 py-[var(--spacing-section)] text-white">
       <Container className="grid gap-12 lg:grid-cols-2 lg:gap-20">
         <MediaFrame
-          src="/img/photos/landscape-03.jpg"
-          alt="Photograph of learning at Hande High School"
+          src={featuredSchoolPhotos.academics}
+          alt="Learner carrying out a practical in the science laboratory"
           aspect="photo"
         />
         <div>

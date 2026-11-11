@@ -6,6 +6,7 @@ import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const strands = [
   {
@@ -35,13 +36,13 @@ export default function AcademicsPage() {
         eyebrow="Academics"
         title="Serious learning, wide horizons"
         lead="A structured curriculum, specialist teaching and a culture that takes learning seriously."
-        image="/img/photos/landscape-03.jpg"
+        image={featuredSchoolPhotos.campus}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <MediaFrame
-            src="/img/photos/landscape-01.jpg"
-            alt="Learning at Hande High School"
+            src={featuredSchoolPhotos.academics}
+            alt="Learner carrying out a practical in the science laboratory"
             className="shadow-2xl"
           />
           <div>

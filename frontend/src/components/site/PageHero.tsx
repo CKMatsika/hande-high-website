@@ -8,7 +8,7 @@ interface PageHeroProps {
   image?: string
 }
 
-const defaultImage = '/img/photos/landscape-02.jpg'
+const defaultImage = '/img/photos/campus-classroom-walkway.jpg'
 
 export function PageHero({ title, eyebrow, lead, image = defaultImage }: PageHeroProps) {
   return (

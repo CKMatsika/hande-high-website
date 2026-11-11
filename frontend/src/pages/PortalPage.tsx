@@ -3,6 +3,7 @@ import { PageHero } from '@/components/site/PageHero'
 import { Container } from '@/design-system/components/Container'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const portals = [
   {
@@ -34,7 +35,7 @@ export default function PortalPage() {
         eyebrow="Portals"
         title="Portal Login"
         lead="Access the school's online systems. Accounts are issued by the school office."
-        image="/img/photos/landscape-03.jpg"
+        image={featuredSchoolPhotos.administration}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>

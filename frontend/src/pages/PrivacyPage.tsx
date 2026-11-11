@@ -11,7 +11,7 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy Policy" image="/img/photos/landscape-06.jpg" />
+      <PageHero eyebrow="Legal" title="Privacy Policy" image="/img/photos/campus-classroom-walkway.jpg" />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="max-w-3xl space-y-5 leading-relaxed text-brand-700">
           {/* TODO: CONFIRM — legal text to be supplied by the school before launch */}

@@ -5,6 +5,7 @@ import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { useEvents } from '@/lib/useContent'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {
@@ -35,7 +36,7 @@ export default function EventsPage() {
         eyebrow="News & Events"
         title="Events & Calendar"
         lead="Open days, term dates and the life of the school, month by month."
-        image="/img/photos/landscape-02.jpg"
+        image={featuredSchoolPhotos.arts}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="max-w-3xl">

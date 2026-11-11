@@ -4,6 +4,7 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const services = [
   {
@@ -35,7 +36,7 @@ export default function WelfarePage() {
         eyebrow="Student Life"
         title="Student Welfare"
         lead="The wellbeing of every learner comes first."
-        image="/img/photos/landscape-01.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>

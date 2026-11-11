@@ -23,14 +23,14 @@ export const latestNews: NewsItem[] = [
     excerpt:
       'We are pleased to introduce our new online home. Explore our campus, programmes and community.',
     date: '2026-01-15',
-    image: '/img/photos/landscape-02.jpg',
+    image: '/img/photos/campus-classroom-walkway.jpg',
   },
   {
     slug: 'term-dates-announced',
     title: 'Term Dates Announced',
     excerpt: 'Term dates and the school calendar for the coming academic year have been published.',
     date: '2026-01-10',
-    image: '/img/photos/landscape-05.jpg',
+    image: '/img/photos/school-awards-ceremony.jpg',
   },
   {
     slug: 'admissions-open',
@@ -38,7 +38,7 @@ export const latestNews: NewsItem[] = [
     excerpt:
       'Applications are now being accepted for the next academic year. Visit the Admissions page to begin.',
     date: '2026-01-05',
-    image: '/img/photos/landscape-06.jpg',
+    image: '/img/photos/students-group-blue-uniform.jpg',
   },
 ]
 

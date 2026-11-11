@@ -3,6 +3,8 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { MediaFrame } from '@/design-system/components/MediaFrame'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 // TODO: CONFIRM actual sports and cultural programmes offered
 const sports = [
@@ -56,7 +58,7 @@ export default function SportsCulturePage() {
         eyebrow="Student Life"
         title="Sports & Culture"
         lead="Room for every talent — on the field, on the stage and in the studio."
-        image="/img/photos/landscape-04.jpg"
+        image={featuredSchoolPhotos.sports}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="grid gap-16 lg:grid-cols-2">
@@ -72,6 +74,26 @@ export default function SportsCulturePage() {
             [TEAM LISTS, FIXTURES AND ACHIEVEMENTS — TO BE CONFIRMED BY THE SCHOOL.] In the
             meantime, contact the school office for the current season&apos;s information.
           </p>
+        </Container>
+      </section>
+      <section className="bg-white py-[var(--spacing-section)]">
+        <Container>
+          <Heading eyebrow="School Life" level="h2">
+            Learning, sport and performance
+          </Heading>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { src: featuredSchoolPhotos.sports, alt: 'Hande High School netball team on court', label: 'Netball' },
+              { src: '/img/photos/students-on-sports-court.jpg', alt: 'Learners enjoying an activity on the sports court', label: 'On the court' },
+              { src: featuredSchoolPhotos.arts, alt: 'Hande High School choir performing at an event', label: 'Choir' },
+              { src: featuredSchoolPhotos.dance, alt: 'Learners performing a cultural dance at school', label: 'Cultural dance' },
+            ].map((photo) => (
+              <figure key={photo.src}>
+                <MediaFrame src={photo.src} alt={photo.alt} aspect="photo" />
+                <figcaption className="mt-3 text-sm font-medium text-brand-700">{photo.label}</figcaption>
+              </figure>
+            ))}
+          </div>
         </Container>
       </section>
     </>

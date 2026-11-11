@@ -6,6 +6,7 @@ import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { useGallery } from '@/lib/useContent'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 export default function GalleryPage() {
   const { photos } = useGallery()
@@ -45,7 +46,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <PageHero eyebrow="Gallery" title="School Gallery" image="/img/photos/landscape-04.jpg" />
+      <PageHero eyebrow="Gallery" title="School Gallery" image={featuredSchoolPhotos.campus} />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -68,7 +69,7 @@ export default function GalleryPage() {
             ))}
           </ul>
           <p className="mt-8 text-sm text-brand-500">
-            More photographs — including video — will be added as the school supplies them.
+            Photographs of campus, academics, transport, sport, arts and school life.
           </p>
         </Container>
       </section>

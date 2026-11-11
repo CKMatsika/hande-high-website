@@ -4,6 +4,7 @@ import { Container } from '@/design-system/components/Container'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { useDownloads } from '@/lib/useContent'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 export default function DownloadsPage() {
   const { documents } = useDownloads()
@@ -18,7 +19,7 @@ export default function DownloadsPage() {
         eyebrow="Resources"
         title="Downloads & Prospectus"
         lead="Documents and resources for current and prospective families."
-        image="/img/photos/landscape-06.jpg"
+        image={featuredSchoolPhotos.campus}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="max-w-3xl">

@@ -7,6 +7,7 @@ import { Button } from '@/design-system/components/Button'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { submitAdmissionApplication, type AdmissionApplicationPayload } from '@/lib/api'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 type ApplicationFields = Omit<AdmissionApplicationPayload, 'documents' | 'idempotency_key'>
 type DocumentCategory = keyof AdmissionApplicationPayload['documents']
@@ -159,7 +160,7 @@ export default function ApplyPage() {
         eyebrow="2027 Admissions"
         title="Application Form"
         lead="Apply for Form 1 or Form 5. Your application will be sent to the school for review."
-        image="/img/photos/landscape-02.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="grid gap-12 lg:grid-cols-5">

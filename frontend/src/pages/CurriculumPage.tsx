@@ -4,6 +4,7 @@ import { Container } from '@/design-system/components/Container'
 import { Heading } from '@/design-system/components/Heading'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 // TODO: CONFIRM subject lists and examination details with the school
 const phases = [
@@ -60,7 +61,7 @@ export default function CurriculumPage() {
       <PageHero
         eyebrow="Academics"
         title="Curriculum & Departments"
-        image="/img/photos/landscape-02.jpg"
+        image={featuredSchoolPhotos.academics}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container>

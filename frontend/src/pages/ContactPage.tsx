@@ -9,6 +9,8 @@ import { usePageMeta } from '@/lib/usePageMeta'
 import { submitEnquiry } from '@/lib/api'
 import { whatsappAvailable, whatsappLink } from '@/lib/contact'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
+import { MediaFrame } from '@/design-system/components/MediaFrame'
 
 interface FormState {
   name: string
@@ -73,7 +75,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Get in Touch"
-        image="/img/photos/landscape-02.jpg"
+        image={featuredSchoolPhotos.entrance}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="grid gap-16 lg:grid-cols-2">
@@ -114,8 +116,12 @@ export default function ContactPage() {
             <div className="mt-10 bg-brand-50 p-6">
               <h3 className="font-display text-lg text-brand-900">Finding us</h3>
               <p className="mt-2 text-sm leading-relaxed text-brand-600">
-                [DIRECTIONS AND A MAP — TO BE CONFIRMED. Ward 10, Chief Chimombe, Buhera, Manicaland Province.]
+                Ward 10, Chief Chimombe, Buhera, Manicaland Province.
               </p>
+              <figure className="mt-5">
+                <MediaFrame src={featuredSchoolPhotos.entrance} alt="Main entrance gate to Hande High School" aspect="video" />
+                <figcaption className="mt-2 text-xs text-brand-500">Hande High School entrance</figcaption>
+              </figure>
             </div>
           </div>
           <div>

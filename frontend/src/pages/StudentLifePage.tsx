@@ -5,25 +5,26 @@ import { Heading } from '@/design-system/components/Heading'
 import { MediaFrame } from '@/design-system/components/MediaFrame'
 import { usePageMeta } from '@/lib/usePageMeta'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 const areas = [
   {
     to: '/student-life/boarding',
     title: 'Boarding Life',
     body: 'A structured home away from home, with houses, mentors and routines that support every learner.',
-    image: '/img/photos/landscape-06.jpg',
+    image: featuredSchoolPhotos.campus,
   },
   {
     to: '/student-life/sports-culture',
     title: 'Sports & Culture',
     body: 'Team and individual sport, music, drama and the arts — something for every interest.',
-    image: '/img/photos/landscape-04.jpg',
+    image: featuredSchoolPhotos.sports,
   },
   {
     to: '/student-life/welfare',
     title: 'Student Welfare',
     body: 'Pastoral care, counselling and health services that put wellbeing first.',
-    image: '/img/photos/landscape-01.jpg',
+    image: featuredSchoolPhotos.students,
   },
 ]
 
@@ -39,7 +40,7 @@ export default function StudentLifePage() {
         eyebrow="Student Life"
         title="Life beyond the classroom"
         lead="Boarding, sport, culture and care — the wider experience of a Hande High education."
-        image="/img/photos/landscape-04.jpg"
+        image={featuredSchoolPhotos.students}
       />
       <section className="bg-white py-[var(--spacing-section)]">
         <Container className="space-y-16">

@@ -3,6 +3,7 @@ import { ArrowDown } from 'lucide-react'
 import { ButtonLink } from '@/design-system/components/ButtonLink'
 import { Container } from '@/design-system/components/Container'
 import { school } from '@/content/school'
+import { featuredSchoolPhotos } from '@/content/photos'
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -21,7 +22,7 @@ export function Hero() {
       aria-label="Welcome"
     >
       <img
-        src="/img/photos/landscape-02.jpg"
+        src={featuredSchoolPhotos.hero}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-70"
