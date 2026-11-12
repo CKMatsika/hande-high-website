@@ -10,8 +10,11 @@ Open **Site → Website Pages** to edit the website’s public pages. Each page 
 - Hero eyebrow, heading, introduction, and image overrides
 - Reorderable blocks for text, image and text layouts, video, callouts, buttons, and block colors
 - A publish switch for CMS overrides and a custom layout switch
+- Side-by-side previews of the current public page and your unsaved draft
 
 Leave a hero field blank to keep the built-in page content. Blocks normally appear after the built-in page content. Turn on **Replace built-in page sections with my content blocks** to build a fully custom page from those blocks. The Contact page and Admissions Application page cannot be replaced, preserving their forms.
+
+Text fields update the draft preview after you leave the field; image uploads, block order, visibility, and color changes update as they are made. The current-page panel loads the published website. The preview is private to the admin session and changes go public only after saving. Configure `WEBSITE_PUBLIC_URL` in the backend environment if the public site uses a different domain. Both preview panels embed the public site, so its hosting policy must allow framing from the backend admin origin. If embedding is blocked, use **Open page** to inspect the current published page; update the hosting frame policy to enable the unsaved draft preview.
 
 For each block, use a public YouTube, Vimeo, or direct MP4 URL for video. Use the block color pickers to set an optional background and text color. Images are uploaded to the backend’s public storage.
 

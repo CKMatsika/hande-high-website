@@ -9,7 +9,7 @@ import { CookieConsent } from '@/components/site/CookieConsent'
 import { useJsonLd } from '@/lib/usePageMeta'
 import { breadcrumbSchema, organizationSchema, websiteSchema } from '@/lib/seo'
 import { trackPageview } from '@/lib/analytics'
-import { api, type ApiSitePage } from '@/lib/api'
+import { api, apiBaseUrl, type ApiSitePage } from '@/lib/api'
 import { useSettings } from '@/lib/useContent'
 import { SitePageContext } from '@/lib/sitePageContext'
 import { SiteSettingsContext } from '@/lib/siteSettingsContext'
@@ -47,11 +47,14 @@ function pageSlug(pathname: string): string {
 }
 
 export function Layout() {
-  const { pathname } = useLocation()
+  const { pathname, search } = useLocation()
   const isFirst = useRef(true)
   const [page, setPage] = useState<ApiSitePage | null>(null)
+  const [draftPage, setDraftPage] = useState<ApiSitePage | null>(null)
   const settings = useSettings()
   const slug = useMemo(() => pageSlug(pathname), [pathname])
+  const isDraftPreview = useMemo(() => new URLSearchParams(search).get('cmsPreview') === '1', [search])
+  const displayedPage = draftPage ?? page
 
   useEffect(() => {
     const controller = new AbortController()
@@ -59,6 +62,33 @@ export function Layout() {
     api.sitePage(slug, controller.signal).then(setPage).catch(() => setPage(null))
     return () => controller.abort()
   }, [slug])
+
+  useEffect(() => {
+    if (!isDraftPreview || window.parent === window) return
+
+    let adminOrigin: string
+    try {
+      adminOrigin = new URL(apiBaseUrl, window.location.href).origin
+    } catch {
+      return
+    }
+
+    const receiveDraft = (event: MessageEvent) => {
+      if (
+        event.source !== window.parent ||
+        event.origin !== adminOrigin ||
+        event.data?.type !== 'hande-cms-page-preview'
+      ) return
+      const nextPage = event.data.page as ApiSitePage | undefined
+      if (!nextPage || !Array.isArray(nextPage.sections)) return
+      setDraftPage(nextPage)
+    }
+
+    window.addEventListener('message', receiveDraft)
+    window.parent.postMessage({ type: 'hande-cms-page-preview-ready' }, adminOrigin)
+
+    return () => window.removeEventListener('message', receiveDraft)
+  }, [isDraftPreview])
 
   useEffect(() => {
     if (page?.meta_title) document.title = page.meta_title
@@ -71,7 +101,7 @@ export function Layout() {
       }
       description.content = page.meta_description
     }
-  }, [page])
+  }, [displayedPage])
 
   useJsonLd('organization', organizationSchema())
   useJsonLd('website', websiteSchema())
@@ -93,17 +123,22 @@ export function Layout() {
   return (
     <SiteSettingsContext.Provider value={settings}>
       <div className="flex min-h-dvh flex-col" style={themeStyle(settings)}>
+        {isDraftPreview && (
+          <div className="bg-accent-500 px-4 py-2 text-center text-sm font-semibold text-brand-950">
+            Private draft preview — changes are not published until you save in the admin panel.
+          </div>
+        )}
         <SkipLink />
         <TopBar />
         <Header />
         <main id="main-content" className="flex-1 outline-none" tabIndex={-1}>
-          <SitePageContext.Provider value={page}>
-            {page?.use_custom_layout && !['admissions-apply', 'contact', 'portal'].includes(slug) ? (
-              <CustomPageCanvas page={page} />
+          <SitePageContext.Provider value={displayedPage}>
+            {displayedPage?.use_custom_layout && !['admissions-apply', 'contact', 'portal'].includes(slug) ? (
+              <CustomPageCanvas page={displayedPage} />
             ) : (
               <>
                 <Outlet />
-                {page && <PageContentSections page={page} />}
+                {displayedPage && <PageContentSections page={displayedPage} />}
               </>
             )}
           </SitePageContext.Provider>

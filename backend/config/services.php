@@ -40,4 +40,8 @@ return [
         'admissions_token' => env('HANDE_ERP_ADMISSIONS_TOKEN'),
     ],
 
+    'website' => [
+        'public_url' => env('WEBSITE_PUBLIC_URL', 'https://www.handehigh.co.zw'),
+    ],
+
 ];
